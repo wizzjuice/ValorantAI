@@ -785,7 +785,7 @@ int main() {
     std::cout << "D3D11 device created.\n";
 
     Logger logger;
-    nvinfer1::ICudaEngine* engine = loadEngine("C:\\Users\\jonah\\OneDrive\\Documents\\ONNX\\best.engine", logger);
+    nvinfer1::ICudaEngine* engine = loadEngine("C:\\ONNX\\best.engine", logger);
     if (!engine) {
         std::cerr << "Failed to load engine!\n";
         d3dContext->Release();
@@ -862,7 +862,7 @@ int main() {
     context->setTensorAddress(inputName.c_str(), d_input);
     context->setTensorAddress(outputName.c_str(), d_output);
 
-    if (!arduino.connect("\\\\.\\COM10")) {
+    if (!arduino.connect("\\\\.\\COM")) {
         std::cerr << "Failed to connect to Arduino. Check Device Manager for COM port.\n";
         return -1;
     }
